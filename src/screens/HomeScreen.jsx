@@ -29,13 +29,13 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../../assets/logo.png")}
+        source={require("../../assets/falcao.jpg")}
         style={{ width: 200, height: 200 }}
       />
       <Text style={styles.h1}>Bem vindo
         {
           email && <Text style={styles.h1}> {email}</Text>
-        } ao meu App</Text>
+        } ao Sistema do Falcão</Text>
     </View>
   );
 }

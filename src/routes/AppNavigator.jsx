@@ -5,29 +5,43 @@ import QuemSomosScreen from "../screens/QuemSomosScreen";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import BuscaCepScreen from "../screens/BuscaCepScreen";
 import LoginScreen from "../screens/LoginScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import RegistroScreen from "../screens/RegistroScreen";
+import CalculaCombustivelScreen from "../screens/CalculaCombustivelScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
 export default function AppNavigator() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="LoginScreen" // como se fosse um id da tela
-        component={LoginScreen}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen
-        name="TabNavigator" // como se fosse um id da tela
-        component={TabNavigator}
-        options={{
-          title: "Início",
-          headerShown: false,
-        }}
-      />
-    </Stack.Navigator>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="LoginScreen" // como se fosse um id da tela
+          component={LoginScreen}
+          options={{
+            title: "Falcão Sistemas - Login",
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="RegistroScreen"
+          component={RegistroScreen}
+          options={{
+            title: "Registrar-se",
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="TabNavigator" // como se fosse um id da tela
+          component={TabNavigator}
+          options={{
+            title: "Início",
+            headerShown: false,
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
@@ -50,6 +64,15 @@ function TabNavigator() {
           title: "Busca CEP",
           tabBarLabel: "CEP",
           tabBarIcon: "map-marker-multiple-outline",
+        }}
+      />
+      <Tab.Screen
+        name="CalculaCombustivelScreen"
+        component={CalculaCombustivelScreen}
+        options={{
+          title: "Calcula Combustível",
+          tabBarLabel: "Combustível",
+          tabBarIcon: "gas-station",
         }}
       />
       <Tab.Screen
